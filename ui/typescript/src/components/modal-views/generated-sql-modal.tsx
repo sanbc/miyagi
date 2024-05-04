@@ -21,7 +21,7 @@ export default function SqlModal({ isOpen, closeModal }: ModalProps) {
                     <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         {/* TODO: Fetch generated SQL */}
                         <div className="text-center">
-                            <h4 className="text-lg leading-6 font-medium text-white" id="modal-title">
+                            <h4 className="text-lg leading-6 font-medium text-black" id="modal-title">
                                 GPT Generated SQL from prompt:
                             </h4>
                             <div className="mt-2">
@@ -29,10 +29,10 @@ export default function SqlModal({ isOpen, closeModal }: ModalProps) {
                                     &quot;What is the most expensive purchase made by the user in the last year?&quot;
                                 </p>
                             </div>
-                            <h4 className="text-lg leading-6 font-medium text-white mt-4" id="modal-title">
+                            <h4 className="text-lg leading-6 font-medium text-black mt-4" id="modal-title">
                                 Generated SQL:
                             </h4>
-                            <p className="mt-2 mb-1 text-xs font-medium text-white sm:text-sm">
+                            <p className="mt-2 mb-1 text-xs font-medium text-black sm:text-sm">
                                 SELECT
                                 u.user_id,
                                 u.first_name,
@@ -50,7 +50,7 @@ export default function SqlModal({ isOpen, closeModal }: ModalProps) {
                         </div>
                     </div>
                     <div className="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                        <button onClick={closeModal} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+                        <button onClick={closeModal} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-black hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
                             Close
                         </button>
                     </div>

@@ -89,7 +89,7 @@ export default function TransactionTable() {
     <div className="">
       <div className="rounded-tl-lg rounded-tr-lg bg-white px-4 pt-6 dark:bg-light-dark md:px-8 md:pt-8">
         <div className="flex flex-col items-center justify-between border-b border-dashed border-gray-200 pb-5 dark:border-gray-700 md:flex-row">
-          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-2xl">
+          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-black sm:text-xl md:mb-0 md:text-2xl">
             Expenses
           </h2>
         </div>
@@ -141,7 +141,7 @@ export default function TransactionTable() {
               </thead>
               <tbody
                 {...getTableBodyProps()}
-                className="text-xs font-medium text-gray-900 dark:text-white 3xl:text-sm"
+                className="text-xs font-medium text-gray-900 dark:text-black 3xl:text-sm"
               >
                 {page.map((row, idx) => {
                   prepareRow(row);
@@ -179,7 +179,7 @@ export default function TransactionTable() {
             shape="circle"
             variant="transparent"
             size="small"
-            className="text-gray-700 disabled:text-gray-400 dark:text-white disabled:dark:text-gray-400"
+            className="text-gray-700 disabled:text-gray-400 dark:text-black disabled:dark:text-gray-400"
           >
             <ChevronLeftIcon className="h-auto w-4 rtl:rotate-180" />
           </Button>
@@ -196,7 +196,7 @@ export default function TransactionTable() {
             shape="circle"
             variant="transparent"
             size="small"
-            className="text-gray-700 disabled:text-gray-400 dark:text-white disabled:dark:text-gray-400"
+            className="text-gray-700 disabled:text-gray-400 dark:text-black disabled:dark:text-gray-400"
           >
             <ChevronRightIcon className="h-auto w-4 rtl:rotate-180 " />
           </Button>

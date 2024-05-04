@@ -22,7 +22,7 @@ export function FinancialAdvisorList({
             <Listbox value={selectedItem} onChange={setSelectedAdvisorAtom}>
                 <Listbox.Button
                     className={cn(
-                        'flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-slate-600/80 px-3 text-sm text-white',
+                        'flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-slate-600/80 px-3 text-sm text-black',
                         className
                     )}
                 >
@@ -44,7 +44,7 @@ export function FinancialAdvisorList({
                             <Listbox.Option key={item.id} value={item}>
                                 {({selected}) => (
                                     <div
-                                        className={`block cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-gray-900 transition dark:text-white  ${
+                                        className={`block cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-gray-900 transition dark:text-black  ${
                                             selected
                                                 ? 'my-1 bg-gray-100 dark:bg-gray-700'
                                                 : 'hover:bg-gray-50 dark:hover:bg-gray-700'
@@ -66,7 +66,7 @@ export function FavoriteAdvisorSelector() {
 
     return (
         <div className="px-6 pt-8">
-            <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">
+            <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-black">
                 Favorite Financial Advisor
             </h4>
             <FinancialAdvisorList sortData={AdvisorsList}/>

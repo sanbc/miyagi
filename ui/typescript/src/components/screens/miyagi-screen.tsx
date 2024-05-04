@@ -16,13 +16,15 @@ export default function MiyagiScreen() {
         description="Miyagi - Hyper-personalized Financial Coach"
       />
 
-      <div className="mt-2 grid gap-4 sm:my-2 md:grid-cols-2">
-        <AssetsCard />
-        <SpendingChart />
-      </div>
+      
 
       <div className="my-8 sm:my-10">
         <TopInvestmentsTable />
+      </div>
+
+      <div className="mt-2 grid gap-4 sm:my-2 md:grid-cols-2">
+        <AssetsCard />
+        <SpendingChart />
       </div>
 
       <div className="flex flex-wrap">

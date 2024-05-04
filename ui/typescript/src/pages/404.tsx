@@ -36,7 +36,7 @@ const ErrorPage: NextPageWithLayout = () => {
           )}
         </div>
 
-        <h2 className="mt-5 mb-2 text-base font-medium uppercase tracking-wide text-gray-900 dark:text-white sm:mt-10 sm:mb-4 sm:text-xl 3xl:mt-12 3xl:text-2xl">
+        <h2 className="mt-5 mb-2 text-base font-medium uppercase tracking-wide text-gray-900 dark:text-black sm:mt-10 sm:mb-4 sm:text-xl 3xl:mt-12 3xl:text-2xl">
             🚧Work In Progress🚧
         </h2>
         <p className="mb-4 max-w-full text-xs leading-loose tracking-tight text-gray-600 dark:text-gray-400 sm:mb-6 sm:w-[430px] sm:text-sm sm:leading-loose">

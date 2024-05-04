@@ -22,7 +22,7 @@ export default function UserCard({ image, name, role }: AuthorCardProps) {
         className="dark:border-gray-400"
       />
       <div className="ltr:pl-3 rtl:pr-3">
-        <h3 className="text-sm font-medium uppercase tracking-wide text-gray-900 dark:text-white">
+        <h3 className="text-sm font-medium uppercase tracking-wide text-gray-900 dark:text-black">
           {name}
         </h3>
         <span className="mt-1 block text-xs text-gray-600 dark:text-gray-400">

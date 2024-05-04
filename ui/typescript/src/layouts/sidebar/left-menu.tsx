@@ -62,18 +62,6 @@ export default function Sidebar({ className }: { className?: string }) {
               />
             ))}
           </div>
-          <div className="relative mt-20 hidden flex-col rounded-lg bg-gray-200 p-6 dark:bg-[#333E59] lg:flex">
-            <div className="-mt-16">
-              <Image src={ShapeImage} alt="Shape image" width={200} height={200}/>
-            </div>
-            <h2 className="mt-5 mb-7 text-center text-[20px] font-semibold leading-8 text-light-dark dark:text-white">
-              Intelligent app workshop
-            </h2>
-            <button className="h-12 rounded-lg bg-brand text-white"
-                    onClick={() => openInNewTab(I_APP_URL)}>
-              Workshop Guide {' '}
-            </button>
-          </div>
         </div>
       </Scrollbar>
     </aside>

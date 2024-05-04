@@ -37,13 +37,13 @@ function MiyagiApp({ Component, pageProps }: AppPropsWithLayout) {
         <ThemeProvider
           attribute="class"
           enableSystem={false}
-          defaultTheme="dark"
+          defaultTheme="light"
         >
           <AccountProvider>
             {getLayout(<Component {...pageProps} />)}
             <GoogleAnalytics />
             <ModalsContainer />
-            <PersonalizeDrawer />
+            {/* <PersonalizeDrawer />  ----SANBC ADD CHAT!!!!*/}
             {/* </div> */}
           </AccountProvider>
         </ThemeProvider>

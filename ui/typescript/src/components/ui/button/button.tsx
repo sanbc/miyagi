@@ -23,7 +23,7 @@ const shapes: Record<ShapeNames, string[]> = {
 };
 const variants: Record<VariantNames, string[]> = {
   ghost: ['bg-transparent'],
-  solid: ['text-white'],
+  solid: ['text-black'],
   transparent: ['bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800'],
 };
 const colors: Record<ColorNames, string[]> = {
@@ -135,7 +135,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           isLoading && 'pointer-events-auto cursor-default focus:outline-none',
           fullWidth && 'w-full',
           color === 'white' || color === 'gray'
-            ? 'text-gray-900 dark:text-white'
+            ? 'text-gray-900 dark:text-black'
             : variants[variant],
           shapes[shape],
           shape === 'circle' ? `${sizeClassNames[1]}` : `${sizeClassNames[0]}`,

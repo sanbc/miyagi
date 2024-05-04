@@ -4,6 +4,6 @@ export function useIsDarkMode() {
   const { resolvedTheme } = useTheme();
 
   return {
-    isDarkMode: resolvedTheme === 'dark',
+    isDarkMode: resolvedTheme === 'light',
   };
 }

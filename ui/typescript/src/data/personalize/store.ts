@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import {TopInvestmentsData} from "@/data/static/top-investments-data";
+import {TopCardRecommendations} from "@/data/static/top-card-recommendations-data";
 import {AdvisorsList, RiskLevelsList, BooksList, ReasoningEngineListData} from "@/data/static/personalize";
 import {UserInfo} from "@/data/static/user-info";
 import {AssetsData} from "@/data/static/assetsData";
@@ -7,7 +7,7 @@ import {Chats} from "@/data/static/chats";
 
 export const userInfoAtom = atom(UserInfo);
 
-export const investmentsDataAtom = atom(TopInvestmentsData);
+export const cardRecommendationsDataAtom = atom(TopCardRecommendations);
 
 export const assetsDataAtom = atom(AssetsData);
 

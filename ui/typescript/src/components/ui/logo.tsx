@@ -24,8 +24,8 @@ export default function Logo() {
       className="flex w-18 outline-none sm:w-42 4xl:w-36"
     >
       <span className="relative flex overflow-hidden">
-          <Image src={lightLogo} alt="Miyagi" height={44} priority />
-          <h1 className="indent-4 text-2xl pt-2 font-extralight">Miyagi</h1>
+          <Image src={lightLogo} alt="TopCard" height={44} priority />
+          <h1 className="indent-4 text-2xl pt-2 font-extralight">TopCard</h1>
       </span>
 
     </AnchorLink>

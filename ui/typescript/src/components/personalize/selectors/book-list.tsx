@@ -24,7 +24,7 @@ export function BookList({
             <Listbox value={selectedItem} onChange={setSelectedBookAtom}>
                 <Listbox.Button
                     className={cn(
-                        'flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-slate-600/80 px-3 text-sm text-white',
+                        'flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-slate-600/80 px-3 text-sm text-black',
                         className
                     )}
                 >
@@ -46,7 +46,7 @@ export function BookList({
                             <Listbox.Option key={item.id} value={item}>
                                 {({selected}) => (
                                     <div
-                                        className={`block cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-gray-900 transition dark:text-white  ${
+                                        className={`block cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-gray-900 transition dark:text-black  ${
                                             selected
                                                 ? 'my-1 bg-gray-100 dark:bg-gray-700'
                                                 : 'hover:bg-gray-50 dark:hover:bg-gray-700'
@@ -100,7 +100,7 @@ export function FavoriteBookSelector() {
 
     return (
         <div className="px-6 pt-8">
-            <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">
+            <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-black">
                 Favorite Historical Book
                 <button
                     ref={buttonRef}
@@ -118,7 +118,7 @@ export function FavoriteBookSelector() {
                 className={`absolute z-10 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 ${popoverVisible ? 'opacity-100' : 'opacity-0 invisible'}`}
             >
                 <div className="p-3 space-y-2">
-                    <h3 className="font-semibold text-gray-900 dark:text-white">Domain specific datasets</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-black">Domain specific datasets</h3>
                     <p>This authoritative dataset is stored as embeddings in vector database, which is used to highlight
                         the Retrieval Augmented Generation (RaG) pattern</p>
                     <a onClick={() => openInNewTab("https://iappwksp.com/wksp/05-use-cases/synthesis/")}

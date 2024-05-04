@@ -1,16 +1,58 @@
 import {useState} from "react";
 import {format} from "date-fns";
 import SqlModal from "@/components/modal-views/generated-sql-modal";
-import {Area, AreaChart, ResponsiveContainer, Tooltip, XAxis} from "recharts";
+import {Area, AreaChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis} from "recharts";
 import {SpendingData} from "@/data/static/spending";
 import Button from "@/components/ui/button";
 import CustomAxis from "@/components/transaction/custom-axis";
 
+const RADIAN = Math.PI / 180;
+const data = [
+  
+    { name: 'D', value: 25, color: '#0c834f' },
+    { name: 'D', value: 25, color: '#7cf916' },
+  { name: 'C', value: 25, color: '#e8c848' },
+
+  
+  { name: 'B', value: 25, color: '#ff8400' },
+  { name: 'A', value: 25, color: '#ff0000' },
+];
+const cx = 225;
+const cy = 150;
+const iR = 70;
+const oR = 120;
+const value = 50;
+
+const needle = (value: number, data: any[], cx: number, cy: number, iR: number, oR: number, color: string | undefined) => {
+  let total = 0;
+  data.forEach((v: { value: number; }) => {
+    total += v.value;
+  });
+  const ang = 180.0 * (1 - value / total);
+  const length = (iR + 2 * oR) / 3;
+  const sin = Math.sin(-RADIAN * ang);
+  const cos = Math.cos(-RADIAN * ang);
+  const r = 5;
+  const x0 = cx + 5;
+  const y0 = cy + 5;
+  const xba = x0 + r * sin;
+  const yba = y0 - r * cos;
+  const xbb = x0 - r * sin;
+  const ybb = y0 + r * cos;
+  const xp = x0 + length * cos;
+  const yp = y0 + length * sin;
+
+  return [
+    <circle cx={x0} cy={y0} r={r} fill={color} stroke="none" />,
+    <path d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`} stroke="#none" fill={color} />,
+  ];
+};
+
 export default function SpendingChart() {
     let [date, setDate] = useState(Date.now());
-    let [spending, setSpending] = useState('34,500');
+    let [spending, setSpending] = useState('4,500');
     let [isModalOpen, setIsModalOpen] = useState(false); // state variable for modal open status
-    const formattedDate = format(new Date(date * 1000), 'MMMM d, yyyy');
+    const formattedDate = format(new Date(date), 'MMMM d, yyyy');
 
     const closeModal = () => { // function to close the modal
         setIsModalOpen(false);
@@ -21,71 +63,42 @@ export default function SpendingChart() {
     };
 
     return (
-        <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
+        <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8 bg-teal-50 shadow-lg">
                 <h3 className="mb-2 text-base font-medium uppercase">
-                    Spending
+                    Utilization
                 </h3>
-                <div className="mb-1 text-base font-medium text-gray-900 dark:text-white sm:text-xl">
-                    ${spending} / YTD
+                <div className="mb-1 text-base font-medium text-gray-900 dark:text-black sm:text-xl">
+                    ${spending} / MTD
                 </div>
                 <div className="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">
                     {formattedDate}
                 </div>
-                <div className="mt-5 h-64 sm:mt-8 2xl:h-72 3xl:h-[340px] 4xl:h-[480px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart
-                            data={SpendingData}
-                            margin={{
-                                top: 0,
-                                right: 0,
-                                left: 0,
-                                bottom: 0,
-                            }}
-                            onMouseMove={(data) => {
-                                if (data.isTooltipActive) {
-                                    setDate(
-                                        data.activePayload && data.activePayload[0].payload.date
-                                    );
-                                    setSpending(
-                                        data.activePayload &&
-                                        data.activePayload[0].payload.monthlyExpense
-                                    );
-                                }
-                            }}
-                        >
-                            <defs>
-                                <linearGradient
-                                    id="spending-gradient"
-                                    x1="0"
-                                    y1="0"
-                                    x2="0"
-                                    y2="1"
-                                >
-                                    <stop offset="5%" stopColor="#bc9aff" stopOpacity={0.5}/>
-                                    <stop offset="100%" stopColor="#7645D9" stopOpacity={0}/>
-                                </linearGradient>
-                            </defs>
-                            <XAxis
-                                dataKey="date"
-                                tickLine={false}
-                                axisLine={false}
-                                tick={<CustomAxis/>}
-                                interval={0}
-                                tickMargin={5}
-                            />
-                            <Tooltip content={<></>} cursor={{stroke: '#7645D9'}}/>
-                            <Area
-                                type="linear"
-                                dataKey="monthlyExpense"
-                                stroke="#7645D9"
-                                strokeWidth={1.5}
-                                fill="url(#spending-gradient)"
-                            />
-                        </AreaChart>
+                <div className="relative flex  justify-center mt-5 h-64 sm:mt-8 2xl:h-72 3xl:h-[300px] 4xl:h-[300px]">
+            <ResponsiveContainer width={450} height={300}>
+                <PieChart width={450} height={300}>
+        <Pie
+          dataKey="value"
+          startAngle={180}
+          endAngle={0}
+          data={data}
+          cx={cx}
+          cy={cy}
+          innerRadius={iR}
+          outerRadius={oR}
+          paddingAngle={2}
+          fill="#8884d8"
+          stroke="none"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Pie>
+        {needle(value, data, cx, cy, iR, oR, '#3468D1')}
+      </PieChart>
                     </ResponsiveContainer>
 
-                    <div className="text-center mt-2">
-                        <h3 className="text-xl font-medium tracking-tighter text-white sm:text-blue-600">
+                    {/* <div className="text-center mt-2">
+                        <h3 className="text-xl font-medium tracking-tighter text-black sm:text-blue-600">
                             Most expensive month
                         </h3>
                         <p className="mt-2 mb-2 text-xs font-medium text-gray-400 sm:text-sm">
@@ -102,8 +115,8 @@ export default function SpendingChart() {
                         </Button>
                     </div>
 
-                    {/* Render the SqlModal */}
-                    <SqlModal isOpen={isModalOpen} closeModal={closeModal}/>
+                    
+                    <SqlModal isOpen={isModalOpen} closeModal={closeModal}/> */}
                 </div>
         </div>
     );

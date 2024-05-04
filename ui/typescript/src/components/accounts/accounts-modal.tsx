@@ -8,7 +8,7 @@ export default function AccountsModal({ ...props }) {
       className="relative z-50 mx-auto w-[440px] max-w-full rounded-lg bg-white px-9 py-16 dark:bg-light-dark"
       {...props}
     >
-      <h2 className="mb-4 text-center text-2xl font-medium uppercase text-gray-900 dark:text-white">
+      <h2 className="mb-4 text-center text-2xl font-medium uppercase text-gray-900 dark:text-black">
         Link Accounts
       </h2>
       <p className="text-center text-sm leading-loose tracking-tight text-gray-600 dark:text-gray-400">

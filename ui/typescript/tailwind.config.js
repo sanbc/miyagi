@@ -4,7 +4,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/layouts/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
+  lightMode: 'class',
   theme: {
     screens: {
       xs: '500px',
@@ -20,8 +20,8 @@ module.exports = {
       colors: {
         brand: 'rgb(var(--color-brand) / <alpha-value>)',
         body: '#fcfcfc',
-        dark: '#0D1321',
-        'light-dark': '#171e2e',
+        light: '#ffffff',
+        'light-dark': '#ffffff',
         'sidebar-body': '#F8FAFC',
       },
       spacing: {
@@ -38,7 +38,7 @@ module.exports = {
         'calc-358': 'calc(100% - 358px)',
       },
       fontFamily: {
-        body: ['Fira Code', 'monospace'],
+        body: ['font-sans', 'font-serif'],
       },
       fontSize: {
         '13px': ['13px', '18px'],

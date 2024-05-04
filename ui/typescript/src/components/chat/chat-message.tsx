@@ -27,7 +27,7 @@ export default function ChatMessage({ chat }: { chat: ChatProps }) {
           })}>
             <div><span
                 className={cn('px-4 py-2 rounded-lg inline-block  ', {
-                  'rounded-br-none bg-blue-600 text-white':
+                  'rounded-br-none bg-blue-600 text-black':
                       authorRole !== Chats[0].authorRole,
                   'rounded-bl-none bg-gray-300 text-gray-600':
                       authorRole === Chats[0].authorRole,

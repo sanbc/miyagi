@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useFlexLayout, usePagination, useResizeColumns, useSortBy, useTable,} from 'react-table';
 import {Area, AreaChart, ResponsiveContainer} from 'recharts';
 import Scrollbar from '@/components/ui/scrollbar';
 import {ChevronDownIcon} from "@heroicons/react/24/outline";
 import {useBreakpoint} from '@/lib/hooks/use-breakpoint';
 import {useIsMounted} from '@/lib/hooks/use-is-mounted';
-import {investmentsDataAtom, loadingPersonalizeAtom} from "@/data/personalize/store";
+import {cardRecommendationsDataAtom, loadingPersonalizeAtom} from "@/data/personalize/store";
 import Skeleton from '@/components/ui/skeleton';
 import {useAtom} from "jotai";
-
-
+import Image from '@/components/ui/image';
+import Button from '../ui/button';
+import { AssetsData } from '@/data/static/assetsData';
+import toast from 'react-hot-toast';
 const COLUMNS = [
   {
     Header: '#',
@@ -18,34 +20,34 @@ const COLUMNS = [
     maxWidth: 40,
   },
   {
-    Header: 'Name',
-    accessor: 'stock',
+    Header: 'Card Name',
+    accessor: 'name',
     // @ts-ignore
-    Cell: ({ cell: { value } }) => (
-      // <div className="ltr:text-right rtl:text-left">{value}</div>
-      <div className="mb-5 grid grid-cols-3 gap-4 text-sm text-gray-900 last:mb-0 dark:text-white">
-        <div className="col-span-2 flex items-center gap-2">
-          <span className="flex flex-col gap-0.5">
-            <span className="whitespace-nowrap text-xs font-medium capitalize">
-              {value.name}
-            </span>
-            <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
-              {value.symbol}
-            </span>
-          </span>
-        </div>
-      </div>
-    ),
+    // Cell: ({ cell: { value } }) => (
+    //   // <div className="ltr:text-right rtl:text-left">{value}</div>
+    //   <div className="mb-5 grid grid-cols-3 gap-4 text-sm text-gray-900 last:mb-0 dark:text-black">
+    //     <div className="col-span-2 flex items-center gap-2">
+    //       <span className="flex flex-col gap-0.5">
+    //         <span className="whitespace-nowrap text-xs font-medium capitalize">
+    //           {value.name}
+    //         </span>
+    //         <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
+    //           {/* {value.symbol} */}
+    //         </span>
+    //       </span>
+    //     </div>
+    //   </div>
+    // ),
     minWidth: 30,
     maxWidth: 50,
   },
   {
     Header: () => (
       <div className="ltr:ml-auto ltr:text-right rtl:mr-auto rtl:text-left">
-        Price
+        Points Earned
       </div>
     ),
-    accessor: 'price',
+    accessor: 'Points',
     // @ts-ignore
     Cell: ({ cell: { value } }) => (
       <div className="ltr:text-right rtl:text-left">${value}</div>
@@ -56,10 +58,10 @@ const COLUMNS = [
   {
     Header: () => (
       <div className="ltr:ml-auto ltr:text-right rtl:mr-auto rtl:text-left">
-        24H Change
+        CashBack rate 
       </div>
     ),
-    accessor: 'usd_price_change_24h',
+    accessor: 'Rewardrate',
     // @ts-ignore
     Cell: ({ cell: { value } }) => (
       <div
@@ -79,16 +81,19 @@ const COLUMNS = [
           GPT Recommendation
         </div>
     ),
-    accessor: 'gptRecommendation',
+    accessor: 'CardRecommendation',
     // @ts-ignore
     Cell: ({ cell: { value } }) => {
-      const [loadingPersonalize] = useAtom(loadingPersonalizeAtom);
+      return (
+        <div className="ltr:text-right rtl:text-left"> {value}</div>
+    );
+      // const [loadingPersonalize] = useAtom(loadingPersonalizeAtom);
 
-      return loadingPersonalize ? (
-          <Skeleton className="!h-4 !w-full" animation />
-      ) : (
-          <div className="ltr:text-right rtl:text-left">{value}</div>
-      );
+      // return loadingPersonalize ? (
+      //     <Skeleton className="!h-4 !w-full" animation />
+      // ) : (
+      //     <div className="ltr:text-right rtl:text-left">{value}</div>
+      // );
     },
     minWidth: 150,
     maxWidth: 200,
@@ -96,10 +101,10 @@ const COLUMNS = [
   {
     Header: () => (
       <div className="ltr:ml-auto ltr:text-right rtl:mr-auto rtl:text-left">
-        1Y Chart
+        Card Activity
       </div>
     ),
-    accessor: 'prices',
+    accessor: 'CardActivity',
     // @ts-ignore
     Cell: ({ cell: { value } }) => (
       <div className="h-10 w-full">
@@ -113,14 +118,14 @@ const COLUMNS = [
                 x2="0"
                 y2="1"
               >
-                <stop offset="5%" stopColor="#bc9aff" stopOpacity={0.5} />
-                <stop offset="100%" stopColor="#7645D9" stopOpacity={0} />
+                <stop offset="5%" stopColor="#60a5fa" stopOpacity={0.5} />
+                <stop offset="100%" stopColor="#60a5fa" stopOpacity={0} />
               </linearGradient>
             </defs>
             <Area
               type="natural"
               dataKey="value"
-              stroke="#7645D9"
+              stroke="#60a5fa"
               strokeWidth={1.5}
               fill="url(#spending-gradient)"
               dot={false}
@@ -137,9 +142,10 @@ const COLUMNS = [
 export default function TopInvestmentsTable() {
   useIsMounted();
   useBreakpoint();
-  const [data] = useAtom(investmentsDataAtom);
+  const [data, setCardRecommendationsData] = useAtom(cardRecommendationsDataAtom);
   const columns = React.useMemo(() => COLUMNS, []);
-
+  const [loadingPersonalize, setLoadingPersonalizeAtom] = useAtom(loadingPersonalizeAtom);
+  const [selectedCategory, setSelectedCategory] = useState('travel');
   const {
     getTableProps,
     getTableBodyProps,
@@ -161,13 +167,85 @@ export default function TopInvestmentsTable() {
 
   const { pageIndex } = state;
 
+  const fetchRecommendations = async (category: string) => {
+    
+    setSelectedCategory(category);
+    console.log('category', category, selectedCategory)
+    setLoadingPersonalizeAtom(true);
+    try{ 
+      const topCardRecommendations = `which credit card to use for ${category}?`;
+      const response = await fetch(`${process.env.NEXT_PUBLIC_RECCOMMENDATION_SERVICE_URL?.replace(/\/+$/, '')}/fetch_recommendations?category=${category}` , {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(topCardRecommendations),
+        
+      });
+      // const response = { ok: {}};
+      console.dir(response);
+
+      if (!response.ok) {
+          console.error('HTTP error: ', response);
+          toast.error('Failed to fetch personalization. Try again later.');
+      }
+
+      const responseData = await response.json();
+      console.log('Successfully got personalization');
+      console.dir(responseData);
+      toast.success('Personalization successful');
+
+      // Extract the relevant data from the response
+      const updatedAssetData = {...responseData}
+
+    // Update the fetched data atoms
+    setCardRecommendationsData(updatedAssetData);
+
+    } catch (error) {
+        console.error('Failed to fetch personalizations');
+        console.dir(error);
+        toast.error('Failed to fetch personalization');
+    } finally {
+        setLoadingPersonalizeAtom(false);
+    }
+  } 
+
   // @ts-ignore
   return (
     <div className="">
+       <div className="flex flex-col items-center justify-between pb-5  md:flex-row">
+      <h3 className="mb-3 shrink-0 text-lg font-medium font-bold  text-blue-400 dark:text-black sm:text-xl md:mb-0 md:text-2xl">
+        Click on the purchase category to change top card recommendations 
+      </h3>
+      </div>
+      
+      <div className='space-x-3'>
+          {AssetsData.map((currency) => (
+              <Button className={currency.code === selectedCategory ? 'card-selected_button': ''} style={{  width: 120, height: 52, background: currency.color, paddingLeft: "1rem", paddingRight: "1rem", fontWeight: 900,
+              fontSize: 18 }}  shape='rounded' onClick={() => fetchRecommendations(currency.code)}>
+                <div style={{ display: "flex", justifyContent: "center"}}>
+                  <div style={{display: "flex", alignItems: "center", paddingRight: 5}}>
+                    {currency.name}
+                  </div>
+                  <div> 
+                    {currency.src ? <Image
+                        width={40} height={40}
+                    src={ currency.src}
+                        alt='test'
+                    /> : ''}
+                  </div>
+                </div>
+                
+              </Button>
+          ))}
+      
+     
+        
+      </div>
       <div className="rounded-tl-lg rounded-tr-lg bg-white px-4 pt-6 dark:bg-light-dark md:px-8 md:pt-8">
         <div className="flex flex-col items-center justify-between border-b border-dashed border-gray-200 pb-5 dark:border-gray-700 md:flex-row">
-          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-2xl">
-            Top Investments
+          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-black sm:text-xl md:mb-0 md:text-2xl">
+            Top Cards
           </h2>
         </div>
       </div>
@@ -218,7 +296,7 @@ export default function TopInvestmentsTable() {
               </thead>
               <tbody
                 {...getTableBodyProps()}
-                className="text-xs font-medium text-gray-900 dark:text-white 3xl:text-sm"
+                className="text-xs font-medium text-gray-900 dark:text-black 3xl:text-sm"
               >
                 {page.map((row, idx) => {
                   prepareRow(row);

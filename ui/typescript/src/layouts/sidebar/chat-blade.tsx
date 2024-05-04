@@ -213,7 +213,7 @@ export default function Sidebar({ className, setSelectedSession, setUserInfoAtom
                     <div className="flex-none w-full mt-2 flex justify-center">
                         <Button
                             variant="ghost"
-                            className={`mt-2 dark:text-white xs:mt-3 mx-auto ${loading ? "opacity-50" : ""
+                            className={`mt-2 dark:text-black xs:mt-3 mx-auto ${loading ? "opacity-50" : ""
                                 }`}
                             onClick={createNewChatSession}
                             disabled={loading}

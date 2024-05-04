@@ -155,7 +155,7 @@ export default function PersonalizeDrawer() {
                         <div className="h-full w-full">
                             <div
                                 className="flex h-16 items-center justify-between gap-6 border-b border-dashed border-gray-200 px-6 dark:border-gray-700">
-                                <h3 className="text-base font-medium uppercase text-gray-900 dark:text-white">
+                                <h3 className="text-base font-medium uppercase text-gray-900 dark:text-black">
                                     Personalize
                                 </h3>
                                 <Button

@@ -50,8 +50,8 @@ export function MenuItem({
             className={cn(
               'relative flex h-12 cursor-pointer items-center justify-between whitespace-nowrap  rounded-lg px-4 text-sm transition-all',
               isChildrenActive
-                ? 'text-white'
-                : 'text-gray-500 hover:text-brand dark:hover:text-white'
+                ? 'text-black'
+                : 'text-gray-500 hover:text-brand dark:hover:text-black'
             )}
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -94,8 +94,8 @@ export function MenuItem({
                           },
                         }),
                     }}
-                    className="flex items-center rounded-lg p-3 text-sm text-gray-500 transition-all before:h-1 before:w-1 before:rounded-full before:bg-gray-500 hover:text-brand ltr:pl-6 before:ltr:mr-5 rtl:pr-6 before:rtl:ml-5 dark:hover:text-white"
-                    activeClassName="!text-brand dark:!text-white dark:before:!bg-white before:!bg-brand before:!w-2 before:!h-2 before:-ml-0.5 before:ltr:!mr-[18px] before:rtl:!ml-[18px] !font-medium"
+                    className="flex items-center rounded-lg p-3 text-sm text-gray-500 transition-all before:h-1 before:w-1 before:rounded-full before:bg-gray-500 hover:text-brand ltr:pl-6 before:ltr:mr-5 rtl:pr-6 before:rtl:ml-5 dark:hover:text-black"
+                    activeClassName="!text-brand dark:!text-black dark:before:!bg-white before:!bg-brand before:!w-2 before:!h-2 before:-ml-0.5 before:ltr:!mr-[18px] before:rtl:!ml-[18px] !font-medium"
                   >
                     {item.name}
                   </ActiveLink>
@@ -116,18 +116,18 @@ export function MenuItem({
               }),
           }}
           className={cn(
-            'relative flex h-12 items-center whitespace-nowrap rounded-lg px-4 text-sm text-gray-500 transition-all hover:text-brand dark:hover:text-white',
+            'relative flex h-12 items-center whitespace-nowrap rounded-lg px-4 text-sm text-gray-500 transition-all hover:text-brand dark:hover:text-black',
             {
               'bg-brand': isActive,
             }
           )}
-          activeClassName="!text-white"
+          activeClassName="!text-black"
         >
           <span
             className={cn(
               'relative z-[1] duration-100 before:absolute before:-right-3 before:top-[50%] before:h-1 before:w-1 before:-translate-y-2/4 before:rounded-full before:bg-none ltr:mr-3 rtl:ml-3',
               {
-                'text-white': isActive,
+                'text-black': isActive,
               }
             )}
           >

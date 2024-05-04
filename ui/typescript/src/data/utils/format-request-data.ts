@@ -1,5 +1,5 @@
 import {AssetsData} from "@/data/static/assetsData";
-import {TopInvestmentsData} from "@/data/static/top-investments-data";
+import {TopInvestmentsData} from "@/data/static/top-card-recommendations-data";
 import {RequestAsset, RequestStock} from "@/data/utils/types";
 
 export const formatRequestData = (assets: typeof AssetsData, investments: typeof TopInvestmentsData) => {

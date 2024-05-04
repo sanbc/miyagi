@@ -15,8 +15,8 @@ export function AccountsList() {
                     <span
                         className={`flex h-9 cursor-pointer items-center justify-center rounded-lg border border-solid text-center text-sm font-medium uppercase tracking-wide transition-all ${
                             checked
-                                ? 'border-brand bg-brand/20 text-white shadow-button'
-                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-white'
+                                ? 'border-brand bg-brand/20 text-black shadow-button'
+                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-black'
                         }`}
                     >
             Banks
@@ -28,8 +28,8 @@ export function AccountsList() {
                     <span
                         className={`flex h-9 cursor-pointer items-center justify-center rounded-lg border border-solid text-center text-sm font-medium uppercase tracking-wide transition-all ${
                             checked
-                                ? 'border-brand bg-brand/20 text-white shadow-button'
-                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-white'
+                                ? 'border-brand bg-brand/20 text-black shadow-button'
+                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-black'
                         }`}
                     >
             Brokerage
@@ -41,8 +41,8 @@ export function AccountsList() {
                     <span
                         className={`flex h-9 cursor-pointer items-center justify-center rounded-lg border border-solid text-center text-sm font-medium uppercase tracking-wide transition-all ${
                             checked
-                                ? 'border-brand bg-brand/20 text-white shadow-button'
-                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-white'
+                                ? 'border-brand bg-brand/20 text-black shadow-button'
+                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-black'
                         }`}
                     >
             Expenses
@@ -54,8 +54,8 @@ export function AccountsList() {
                     <span
                         className={`flex h-9 cursor-pointer items-center justify-center rounded-lg border border-solid text-center text-sm font-medium uppercase tracking-wide transition-all ${
                             checked
-                                ? 'border-brand bg-brand/20 text-white shadow-button'
-                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-white'
+                                ? 'border-brand bg-brand/20 text-black shadow-button'
+                                : 'border-gray-200 bg-white text-brand dark:border-gray-700 dark:bg-gray-800 dark:text-black'
                         }`}
                     >
             Credit Card
@@ -70,7 +70,7 @@ export function LinkAccounts() {
 
     return (
         <div className="px-6 pt-8">
-            <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">
+            <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-black">
                 Accounts (<a
                 href="https://github.com/Azure-Samples/miyagi/blob/main/services/user-service/java/src/main/java/com/microsoft/gbb/miyagi/userservice/service/OpenAIGeneratorService.java#L24-L28" target="_blank" className="text-blue-600 cursor-pointer underline">synthetic data w/ GPT</a>)
             </h4>

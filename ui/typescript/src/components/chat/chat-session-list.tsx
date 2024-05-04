@@ -67,7 +67,7 @@ export function ChatSessionList({ className, setSelectedSession: updateSelectedS
             <Listbox value={selectedSession} onChange={handleSessionChange}>
                 <Listbox.Button
                     className={cn(
-                        "flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-slate-600/80 px-3 text-sm text-white",
+                        "flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-slate-600/80 px-3 text-sm text-black",
                         className
                     )}
                 >
@@ -101,7 +101,7 @@ export function ChatSessionList({ className, setSelectedSession: updateSelectedS
                                 >
                                     {({ selected }) => (
                                         <div
-                                            className={`block cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-gray-900 transition dark:text-white  ${selected
+                                            className={`block cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-gray-900 transition dark:text-black  ${selected
                                                 ? "my-1 bg-gray-100 dark:bg-gray-700"
                                                 : "hover:bg-gray-50 dark:hover:bg-gray-700"
                                                 }`}

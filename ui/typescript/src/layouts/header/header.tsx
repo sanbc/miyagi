@@ -14,7 +14,7 @@ import routes from '@/config/routes';
 function NotificationButton() {
   return (
     <ActiveLink href={routes.notification}>
-      <div className="relative flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-gray-100 bg-white text-brand shadow-main transition-all hover:-translate-y-0.5 hover:shadow-large focus:-translate-y-0.5 focus:shadow-large focus:outline-none dark:border-gray-700 dark:bg-light-dark dark:text-white sm:h-12 sm:w-12">
+      <div className="relative flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-gray-100 bg-white text-brand shadow-main transition-all hover:-translate-y-0.5 hover:shadow-large focus:-translate-y-0.5 focus:shadow-large focus:outline-none dark:border-gray-700 dark:bg-light-dark dark:text-black sm:h-12 sm:w-12">
         <BellAlertIcon className="h-6 w-6 text-gray-500" />
         <span className="absolute top-0 right-0 h-2.5 w-2.5 rounded-full bg-brand shadow-light dark:bg-slate-50 sm:h-3 sm:w-3" />
       </div>
@@ -60,12 +60,12 @@ export default function Header({ className }: { className?: string }) {
               isOpen={false}
               variant="transparent"
               onClick={() => openDrawer('DASHBOARD_SIDEBAR')}
-              className="dark:text-white"
+              className="light:text-black"
             />
           </div>
           <SearchButton
             variant="transparent"
-            className="ltr:-ml-[17px] rtl:-mr-[17px] dark:text-white"
+            className="ltr:-ml-[17px] rtl:-mr-[17px] light:text-black"
           /> <span className="opacity-25">Semantic Search, Powered by Azure Cognitive Search</span>
         </div>
         <HeaderRightArea />

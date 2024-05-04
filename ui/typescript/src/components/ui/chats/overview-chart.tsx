@@ -51,13 +51,13 @@ export default function OverviewChart({ chartWrapperClass }: Props) {
   return (
     <div
       className={cn(
-        'rounded-lg bg-light-dark p-6 text-white shadow-card sm:p-8',
+        'rounded-lg bg-light-dark p-6 text-black shadow-card sm:p-8',
         {
           'w-full lg:w-[49%]': layout === LAYOUT_OPTIONS.CHAT,
         }
       )}
     >
-      <h3 className="text-xl font-medium tracking-tighter text-white sm:text-blue-600">
+      <h3 className="text-xl font-medium tracking-tighter text-black sm:text-blue-600">
         GPT recommends to reduce expenses by 5.2%
       </h3>
       <p className="mt-2 mb-1 text-xs font-medium text-gray-400 sm:text-sm">
