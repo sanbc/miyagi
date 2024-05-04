@@ -1,6 +1,0 @@
-.env
-__pycache__/
-poetry.lock
-env
-/.run/
-.idea

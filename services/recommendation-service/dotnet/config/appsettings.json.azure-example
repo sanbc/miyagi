@@ -1,8 +1,0 @@
-{
-  "deploymentOrModelId": "gpt-4",
-  "embeddingDeploymentOrModelId": "text-embedding-ada-002",
-  "endpoint": "https:// ... your endpoint ... .openai.azure.com/",
-  "cosmosDbDatabaseName": "miyagi",
-  "cosmosDbContainerName": "recommendations"
-  "apiKey": "... your Azure OpenAI key ..."
-}
