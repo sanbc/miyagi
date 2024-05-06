@@ -1,10 +1,10 @@
 export const UserInfo = {
     "input": "How to allocate portfolio?",
     "userId": "5966",
-    "userName": "govind-k.copilot-chat",
+    "userName": "Joseph-k.copilot-chat",
     "chatId": process.env.NEXT_PUBLIC_CHAT_ID,
-    "firstName": "Govind",
-    "lastName": "Kamtamneni",
+    "firstName": "Joseph",
+    "lastName": "Smith",
     "age": 50,
     "authorRole": 0,
     "riskLevel": "aggressive",

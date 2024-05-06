@@ -1,8 +1,0 @@
-__pycache__
-env
-.env
-/.run/
-.idea
-build
-code_converter.egg-info
-.streamlit

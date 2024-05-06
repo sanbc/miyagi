@@ -105,15 +105,15 @@ export default function AssetsCard() {
         <div className="rounded-lg bg-blue-50 p-6 shadow-card shadow-lg dark:bg-light-dark sm:p-8">
             <h3 className="mb-2 text-base font-medium uppercase">Spending</h3>
 
-            <div className="relative flex h-[300px] justify-center">
-            <ResponsiveContainer width={450} height={300}>
-                <PieChart width={450} height={300}>
+            <div className="relative flex h-[220px] justify-center">
+            <ResponsiveContainer width={450} height={220}>
+                <PieChart width={450} height={220}>
                     <Pie
                         activeIndex={activeIndex}
                         activeShape={renderActiveShape}
                         data={data}
                         cx={225}
-                        cy={150}
+                        cy={120}
                         innerRadius={60}
                         outerRadius={80}
                         fill="#8884d8"

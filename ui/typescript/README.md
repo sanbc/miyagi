@@ -13,13 +13,6 @@ To run locally with env vars
 
 1.  In command line, run
 ```shell
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
-### Screenshots
-<img src="../../assets/images/wip-ui.png" />
-
-
-<img src="public/images/readme/1.png" width=30% height=30% />
-
-[^fn]: [Components](https://mui.com/material-ui/getting-started/overview/)

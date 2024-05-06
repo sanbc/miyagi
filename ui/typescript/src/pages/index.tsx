@@ -3,7 +3,7 @@ import type { NextPageWithLayout } from '@/types';
 import RootLayout from '@/layouts/_root-layout';
 import { useLayout } from '@/lib/hooks/use-layout';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
-import MiyagiScreen from '@/components/screens/miyagi-screen';
+import TopCard from '@/components/screens/top-card-screen';
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
@@ -17,9 +17,9 @@ const HomePage: NextPageWithLayout<
   const { layout } = useLayout();
 
   if (layout === LAYOUT_OPTIONS.MIYAGI) {
-    return <MiyagiScreen />;
+    return <TopCard />;
   }
-  return <MiyagiScreen />;
+  return <TopCard />;
 };
 
 HomePage.getLayout = function getLayout(page) {

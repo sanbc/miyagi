@@ -20,7 +20,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-function MiyagiApp({ Component, pageProps }: AppPropsWithLayout) {
+function TopCard({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   const [queryClient] = useState(() => new QueryClient());
   return (
@@ -52,4 +52,4 @@ function MiyagiApp({ Component, pageProps }: AppPropsWithLayout) {
   );
 }
 
-export default MiyagiApp;
+export default TopCard;

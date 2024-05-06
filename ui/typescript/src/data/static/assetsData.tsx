@@ -4,6 +4,7 @@ import travel from '@/assets/images/assets/travel.png';
 import dining from '@/assets/images/assets/dinner-table.png';
 import gas from '@/assets/images/assets/fuel.png';
 import grocery from '@/assets/images/assets/vegetable.png';
+import other from '@/assets/images/assets/other.png';
 export const AssetsData = [
   {
     icon: <ChartBarSquareIcon className="h-6 w-6 text-gray-500" />,
@@ -11,7 +12,7 @@ export const AssetsData = [
     gptRecommendation: 'Buy',
     code: 'travel',
     volume: '+12.5%',
-    color: '#F79517',
+    color: 'rgb(247 149 23 )',
     isChangePositive: true,
     src: travel,
   },
@@ -21,7 +22,7 @@ export const AssetsData = [
     gptRecommendation: 'Sell',
     code: 'dining',
     volume: '+8.47%',
-    color: '#259C77',
+    color: 'rgb(37, 156, 119)',
     isChangePositive: true,
     src: dining,
   },
@@ -31,7 +32,7 @@ export const AssetsData = [
     gptRecommendation: 'Hold',
     code: 'grocery',
     volume: '+5.63%',
-    color: '#3468D1',
+    color: 'rgb(52 104 209 )',
     isChangePositive: true,
     src: grocery,
   },
@@ -41,7 +42,7 @@ export const AssetsData = [
     gptRecommendation: 'Buy',
     code: 'gas',
     volume: '+30.02%',
-    color: '#ff0000',
+    color: 'rgb(255, 0, 0)',
     isChangePositive: true,
     src: gas,
   },
@@ -51,7 +52,8 @@ export const AssetsData = [
     gptRecommendation: 'Buy',
     code: 'real-estate',
     volume: '+10.02%',
-    color: '#F3BA2F',
+    color: 'rgb(243, 186, 47)',
     isChangePositive: true,
+    src: other,
   },
 ];

@@ -1,1 +1,0 @@
-# See [intelligentapp.dev](https://intelligentapp.dev) for more information

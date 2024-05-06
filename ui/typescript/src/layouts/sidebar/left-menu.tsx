@@ -49,7 +49,6 @@ export default function Sidebar({ className }: { className?: string }) {
           <UserCard
             image={UserProfileImage}
             name={`${userInfo.firstName} ${userInfo.lastName}`}
-            role="(Microsoft Graph)"
           />
 
           <div className="mt-12">

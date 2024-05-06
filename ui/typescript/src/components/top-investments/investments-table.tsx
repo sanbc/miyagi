@@ -221,22 +221,22 @@ export default function TopInvestmentsTable() {
       
       <div className='space-x-3'>
           {AssetsData.map((currency) => (
-              <Button className={currency.code === selectedCategory ? 'card-selected_button': ''} style={{  width: 120, height: 52, background: currency.color, paddingLeft: "1rem", paddingRight: "1rem", fontWeight: 900,
-              fontSize: 18 }}  shape='rounded' onClick={() => fetchRecommendations(currency.code)}>
+              <Button className={currency.code === selectedCategory ? 'card-selected_button': 'card-unselected_button'} style={{   border: "2px " + currency.color + "solid" }}  shape='rounded' onClick={() => fetchRecommendations(currency.code)}>
                 <div style={{ display: "flex", justifyContent: "center"}}>
                   <div style={{display: "flex", alignItems: "center", paddingRight: 5}}>
                     {currency.name}
                   </div>
-                  <div> 
-                    {currency.src ? <Image
+                  <div style={{height: 40, width: 40}}> 
+                    <Image
                         width={40} height={40}
-                    src={ currency.src}
+                        src={ currency.src}
                         alt='test'
-                    /> : ''}
+                    /> 
                   </div>
                 </div>
                 
               </Button>
+              
           ))}
       
      

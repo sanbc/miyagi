@@ -129,9 +129,24 @@ Styles for Swiper slider
 }
 
 .card-selected_button {
-  box-shadow: 0 0px 17px gray;
+  box-shadow: 0 0px 17px gray !important;
   margin: 1px;
-  outline: 2px solid grey;
+  background: white;
+  font-weight: 900;
+  font-size: 18;
+  /* outline: 2px solid grey; */
+}
+
+.card-unselected_button {
+  box-shadow: 0 0px 7px gray;
+  margin: 1px;
+  /* outline: 2px solid grey; */
+  width: 120px;
+  height: 52px;
+  background: white;
+  padding-left: "1rem";
+  padding-right: "1rem";
+  font-size: 18;
 }
 ::-webkit-scrollbar {
   width: 10px;

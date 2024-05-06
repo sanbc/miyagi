@@ -18,7 +18,7 @@ const data = [
   { name: 'A', value: 25, color: '#ff0000' },
 ];
 const cx = 225;
-const cy = 150;
+const cy = 120;
 const iR = 70;
 const oR = 120;
 const value = 50;
@@ -63,7 +63,7 @@ export default function SpendingChart() {
     };
 
     return (
-        <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8 bg-teal-50 shadow-lg">
+        <div className="rounded-lg  p-6 shadow-card sm:p-8 bg-teal-50 shadow-lg">
                 <h3 className="mb-2 text-base font-medium uppercase">
                     Utilization
                 </h3>
@@ -73,9 +73,9 @@ export default function SpendingChart() {
                 <div className="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">
                     {formattedDate}
                 </div>
-                <div className="relative flex  justify-center mt-5 h-64 sm:mt-8 2xl:h-72 3xl:h-[300px] 4xl:h-[300px]">
-            <ResponsiveContainer width={450} height={300}>
-                <PieChart width={450} height={300}>
+                <div className="relative flex  justify-center mt-5  sm:mt-8 h-[220px]">
+            <ResponsiveContainer width={450} height={220}>
+                <PieChart width={450} height={220}>
         <Pie
           dataKey="value"
           startAngle={180}
