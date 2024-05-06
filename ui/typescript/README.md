@@ -1,5 +1,5 @@
-# Frontend UI for Miyagi
-This repo hosts the frontend UI for Miyagi, which is built with [Next.js](https://nextjs.org/), an opinionated React framework for server-side rendering and static site generation [^fn].
+# Frontend UI for TopCard
+This repo hosts the frontend UI for TopCard, which is built with [Next.js](https://nextjs.org/), an opinionated React framework for server-side rendering and static site generation [^fn].
 The goal is to showcase the art of the possible with the latest AI models, Azure integrations, APIs, and services for full-stack developers.
 
 ### Prerequisites
